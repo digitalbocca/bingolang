@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -33,7 +34,7 @@ func init() {
 }
 
 type Match struct {
-	ID         uint      `json:"id"`
+	ID         string    `json:"id"`
 	Numbers    []int     `json:"numbers" gorm:"type:json"`
 	IsOpen     bool      `json:"is_open"`
 	LastNumber int       `json:"last_number"`
@@ -51,7 +52,7 @@ func main() {
 
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, Match{
-			uint(rand.Int()),
+			uuid.New().String(),
 			numbers[:],
 			true,
 			numbers[0],
