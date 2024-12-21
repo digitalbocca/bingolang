@@ -1,0 +1,17 @@
+@endpoint = http://localhost:3000
+@slug = /matches
+@id = 3b3316ca-906a-44b2-a47f-5038be855721
+
+###
+GET {{endpoint}}{{slug}}
+Content-Type: application/json
+
+###
+GET {{endpoint}}{{slug}}/{{id}}
+Content-Type: application/json
+
+###
+POST {{endpoint}}{{slug}}
+Content-Type: application/json
+
+###
