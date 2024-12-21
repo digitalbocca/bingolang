@@ -63,7 +63,9 @@ func Randomizer() []int {
 		numbers[i] = i + 1
 	}
 
-	rand.Shuffle(len(numbers), func(i, j int) {
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+
+	r.Shuffle(len(numbers), func(i, j int) {
 		numbers[i], numbers[j] = numbers[j], numbers[i]
 	})
 
